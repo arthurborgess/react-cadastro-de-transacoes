@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { IDeal } from "../../types/Deal";
 import { ModalMenu } from "../ModalMenu";
 import { Container } from "./styles";
 
-export const Header: React.FC = () => {
+type Props = {
+    setDealData: (dealData: IDeal[]) => void;
+}
+
+export const Header = ({ setDealData }: Props) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    
+
     return (
         <Container>
             <nav>
@@ -17,7 +22,7 @@ export const Header: React.FC = () => {
                     <div></div>
                     <div></div>
                 </div>
-                {modalIsOpen && <ModalMenu onClose={() => setModalIsOpen(false)}/>}
+                {modalIsOpen && <ModalMenu onClose={() => setModalIsOpen(false)} setDealData={setDealData} />}
             </nav>
         </Container>
     )

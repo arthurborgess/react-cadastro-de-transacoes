@@ -1,4 +1,9 @@
-export const InputCurrency: React.FC = () => {
+type Props = {
+    dealValue: string;
+    setDealValue: (dealValue: string) => void;
+}
+
+export const InputCurrency = ({ dealValue, setDealValue }: Props) => {
 
     const maskMoney = (event: React.KeyboardEvent<HTMLInputElement>) => {
         event.preventDefault();
@@ -13,7 +18,9 @@ export const InputCurrency: React.FC = () => {
         event.currentTarget.value = Intl.NumberFormat('pt-BR', {
             style: 'currency',
             currency: 'BRL'
-        }).format(formattedInput);;
+        }).format(formattedInput);
+
+        setDealValue(event.currentTarget.value);
 
     }
 
@@ -29,7 +36,6 @@ export const InputCurrency: React.FC = () => {
             placeholder="R$ 0,00"
             onKeyPress={maskMoney}
             onKeyUp={pasteCheck}
-            name="dealValue"
             autoComplete="off"
             required
         />
