@@ -12,9 +12,6 @@ export const ModalMenu = ({ onClose, setDealData }: Props) => {
         if (window.confirm('Todos os dados serão excluídos! Deseja prosseguir?')) {
             setDealData([]);
             localStorage.clear();
-            onClose();
-        } else {
-            onClose();
         }
     }
 
@@ -22,9 +19,10 @@ export const ModalMenu = ({ onClose, setDealData }: Props) => {
         <Container>
             <div className="close" onClick={onClose}>⨯</div>
             <div className="navbar">
-                <div className="navbar-item" onClick={onClose}>
+                <div className="navbar-item">
                     <span><a><strong>Cadastro de transações</strong></a></span>
                 </div>
+                <div className="line"></div>
                 <div className="navbar-item" onClick={eraseAllData}>
                     <span><a><strong>Limpar dados</strong></a></span>
                 </div>

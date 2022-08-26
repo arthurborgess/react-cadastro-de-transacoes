@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IDeal } from "../../types/Deal";
 import { ModalMenu } from "../ModalMenu";
 import { Container } from "./styles";
@@ -8,7 +8,11 @@ type Props = {
 }
 
 export const Header = ({ setDealData }: Props) => {
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    useEffect(() => {
+        window.innerWidth >= 1112 && setModalIsOpen(true);
+    }, [modalIsOpen, setModalIsOpen]);
 
     return (
         <Container>

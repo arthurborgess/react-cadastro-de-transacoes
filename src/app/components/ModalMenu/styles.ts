@@ -25,7 +25,6 @@ export const Container = styled.div`
     .navbar span {
         width: 100%;
         height: 2rem;
-        text-decoration: none;
         padding-right: 1.5rem;
         display: flex;
         justify-content: flex-end;
@@ -40,5 +39,47 @@ export const Container = styled.div`
     }
     .navbar span a:hover {
         color: #333333;
+    }
+    
+    @media(min-width: 1112px) {
+        width: 22rem;
+        position: initial;
+        background-color: #FFF;
+
+        .close {
+            display: none;
+        }
+        .navbar {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar span {
+            margin: 0;
+            padding: 0 1.2rem;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+
+            &:hover {
+                background-color: initial;
+            }
+        }
+        .navbar span a {
+            color: #333;
+        }
+        .line {
+            height: 50%;
+            border: 1px solid #979797;
+        }
+
     }
 `;
